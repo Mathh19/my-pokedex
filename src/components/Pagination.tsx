@@ -43,6 +43,7 @@ export const Pagination = ({ count, setPage }: PaginationProps) => {
               <button
                 type="button"
                 className="text-3xl max-sm:text-2xl"
+                aria-label={type === 'previous' ? 'previous' : 'next'}
                 {...item}
               >
                 {type === 'previous' ? (
