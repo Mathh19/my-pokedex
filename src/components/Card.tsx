@@ -22,9 +22,9 @@ export const Card = ({ pokemon }: CardProps) => {
     : '/assets/imgs/pokemon-not-found.svg';
 
   return (
-    <Link href="/" className="group">
+    <Link href="/" className="group max-w-[290px]">
       <div className="relative font-semibold text-lg p-4 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
-        <>
+        <div className="flex flex-col items-center w-full">
           <Image
             src="/assets/imgs/logo-pokeball.svg"
             width={45}
@@ -54,7 +54,7 @@ export const Card = ({ pokemon }: CardProps) => {
               </div>
             )}
           </div>
-        </>
+        </div>
       </div>
     </Link>
   );
