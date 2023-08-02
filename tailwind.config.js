@@ -11,6 +11,7 @@ module.exports = {
         'bg-primary': '#191919',
         'text-primary': '#FAFAFA',
         'nav-primary': '#E3350D',
+        'card-primary': '#434A54',
         'pokemon-types': {
           normal: '#9fa39d',
           fighting: '#ff215b',
@@ -31,6 +32,27 @@ module.exports = {
           dark: '#5a566a',
           fairy: '#ff76ff'
         }
+      },
+      keyframes: {
+        card: {
+          '0%': { opacity: '0', transform: 'translateY(-1.5rem)' },
+          '100%': { opacity: '1' }
+        },
+        pokeball: {
+          '0%': {
+            transform: 'translateX(-10px) rotate(-20deg)'
+          },
+          '50%': {
+            transform: 'translateX(10px) rotate(20deg)'
+          },
+          '100%': {
+            transform: 'translateX(-10px) rotate(-20deg)'
+          }
+        }
+      },
+      animation: {
+        card: 'card 1s ease-in-out',
+        'pokeball-loading': 'pokeball 1s ease-in-out infinite'
       }
     },
     fontFamily: {

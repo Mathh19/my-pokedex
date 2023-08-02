@@ -23,7 +23,7 @@ export const Card = ({ pokemon }: CardProps) => {
 
   return (
     <Link href="/" className="group">
-      <div className="relative font-semibold text-lg border p-4 border-zinc-400 rounded-xl bg-gradient-to-b from-1% from-zinc-700 to-bg-primary to-80% animate-card">
+      <div className="relative font-semibold text-lg p-4 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
         <>
           <Image
             src="/assets/imgs/logo-pokeball.svg"
