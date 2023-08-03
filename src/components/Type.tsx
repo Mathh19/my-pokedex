@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import { PokemonTypes } from '@/shared-types/pokemonTypes';
 
@@ -29,14 +30,22 @@ export const Type = ({ type, disabled = false }: TypeProps) => {
     fairy: 'bg-pokemon-types-fairy'
   };
 
+  const router = useRouter();
+
+  const handleNavigateToType = (value: string) => {
+    router.push(`/type/${value}`);
+  };
+
   return (
     <button
       disabled={disabled}
+      value={type}
+      onClick={() => handleNavigateToType(type)}
       className={`${colorVariantsBg[type]} flex flex-shrink-0 gap-1 justify-center items-center rounded-full px-2 py-1.5 font-semibold text-sm uppercase`}
     >
       <Image
         src={`/assets/icons/${type}.svg`}
-        alt="Icon pokémon type"
+        alt={`${type} pokemon type icon`}
         width={20}
         height={20}
       />
