@@ -1,9 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #FAFAFA transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #FAFAFA;
+    border-radius: 14px;
+  }
   body {
     @apply bg-bg-primary text-text-primary
+  }
+}
+@layer components {
+  .btn_slide {
+    @apply text-white text-5xl max-sm:hidden
+  }
+
+  .loading_pokeball {
+    @apply flex items-center justify-center relative animate-pokeball-loading after:absolute after:content-[''] after:w-10 after:h-10 after:rounded-full after:blur-sm after:bg-red-600 after:animate-pulse after:mt-1.5
+  }
+
+  .container_cards {
+    @apply inline-grid min-h-screen grid-cols-3 gap-x-11 gap-y-11 max-[1050px]:grid-cols-2 max-md:grid-cols-1
   }
 }
