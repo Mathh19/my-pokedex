@@ -1,24 +1,30 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { useFetch } from '@/hooks/useFetch';
 import { PokemonProps } from '@/shared-types/pokemon';
 
 import { Type } from './Type';
 
 type CardProps = {
-  pokemon: PokemonProps;
+  name: string;
+  url: string;
 };
 
-export const Card = ({ pokemon }: CardProps) => {
-  const id =
-    pokemon.id <= 9
-      ? `00${pokemon.id}`
-      : pokemon.id <= 99
-      ? `0${pokemon.id}`
-      : pokemon.id;
+export const Card = ({ name, url }: CardProps) => {
+  const { data } = useFetch<PokemonProps>(url);
 
-  const img = pokemon.sprites.other.home.front_default
-    ? pokemon.sprites.other.home.front_default
+  const id =
+    data !== undefined && data.id <= 9
+      ? `00${data.id}`
+      : data !== undefined && data.id <= 99
+      ? `0${data.id}`
+      : data?.id;
+
+  const img = data?.sprites.other.home.front_default
+    ? data?.sprites.other.home.front_default
     : '/assets/imgs/pokemon-not-found.svg';
 
   return (
@@ -32,19 +38,13 @@ export const Card = ({ pokemon }: CardProps) => {
             alt="pokeball icon"
             className="absolute left-0 top-0 m-1 group-hover:rotate-45 delay-100 duration-300 ease-in-out"
           />
-          <Image
-            src={img}
-            alt={pokemon.name}
-            width={250}
-            height={250}
-            priority
-          />
+          <Image src={img} alt={name} width={250} height={250} priority />
           <div className="flex flex-col mt-4 justify-center items-center gap-2">
             <p>#{id}</p>
-            <p className="capitalize whitespace-nowrap">{pokemon.name}</p>
-            {pokemon.types && (
+            <p className="capitalize whitespace-nowrap">{name}</p>
+            {data?.types && (
               <div className="flex gap-3">
-                {pokemon.types.map((type) => (
+                {data?.types.map((type) => (
                   <Type
                     key={type.type.name}
                     disabled={true}
