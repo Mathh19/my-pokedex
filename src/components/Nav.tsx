@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const Nav = () => {
   return (
-    <nav className="bg-nav-primary drop-shadow-md py-2 px-4 flex justify-between items-center">
+    <nav className="bg-nav-primary w-full drop-shadow-md py-2 px-4 flex justify-between items-center">
       <Link href="/">
         <div className="flex gap-1 mr-4">
           <Image
