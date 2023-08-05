@@ -46,7 +46,7 @@ export const Card = ({ name, url }: CardProps) => {
             priority
             className="contrast-125 m-4 drop-shadow-[8px_2px_4px_rgba(0,0,0,0.35)]"
           />
-          <div className="flex flex-col mt-4 justify-center items-center gap-2">
+          <div className="flex flex-col justify-center items-center gap-2">
             <p>#{id}</p>
             <p className="capitalize whitespace-nowrap">{name}</p>
             {data?.types && (
