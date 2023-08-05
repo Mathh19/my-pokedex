@@ -42,7 +42,7 @@ export const Type = ({ type, disabled = false }: TypeProps) => {
       aria-label={type}
       value={type}
       onClick={() => handleNavigateToType(type)}
-      className={`${colorVariantsBg[type]} flex flex-shrink-0 gap-1 justify-center items-center rounded-full px-2 py-1.5 font-semibold text-sm uppercase max-[350px]:py-2`}
+      className={`${colorVariantsBg[type]} flex flex-shrink-0 gap-1 justify-center items-center rounded-full px-2 py-1.5 font-bold text-sm uppercase max-sm:py-2`}
     >
       <Image
         src={`/assets/icons/${type}.svg`}
@@ -50,7 +50,7 @@ export const Type = ({ type, disabled = false }: TypeProps) => {
         width={20}
         height={20}
       />
-      <span className="max-[350px]:hidden">{type}</span>
+      <span className="max-sm:hidden">{type}</span>
     </button>
   );
 };
