@@ -23,8 +23,8 @@ export const Card = ({ name, url }: CardProps) => {
       ? `0${data.id}`
       : data?.id;
 
-  const img = data?.sprites.other.home.front_default
-    ? data?.sprites.other.home.front_default
+  const img = data?.sprites.other['official-artwork'].front_default
+    ? data?.sprites.other['official-artwork'].front_default
     : '/assets/imgs/pokemon-not-found.svg';
 
   return (
@@ -38,7 +38,14 @@ export const Card = ({ name, url }: CardProps) => {
             alt="pokeball icon"
             className="absolute left-0 top-0 m-1 group-hover:rotate-45 delay-100 duration-300 ease-in-out"
           />
-          <Image src={img} alt={name} width={250} height={250} priority />
+          <Image
+            src={img}
+            alt={name}
+            width={250}
+            height={250}
+            priority
+            className="contrast-125 m-4 drop-shadow-[8px_2px_4px_rgba(0,0,0,0.35)]"
+          />
           <div className="flex flex-col mt-4 justify-center items-center gap-2">
             <p>#{id}</p>
             <p className="capitalize whitespace-nowrap">{name}</p>

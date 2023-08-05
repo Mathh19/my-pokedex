@@ -6,7 +6,7 @@ export type PokemonProps = {
   order: number;
   sprites: {
     other: {
-      home: {
+      'official-artwork': {
         front_default?: string;
       };
     };
