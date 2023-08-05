@@ -28,8 +28,8 @@ export const Card = ({ name, url }: CardProps) => {
     : '/assets/imgs/pokemon-not-found.svg';
 
   return (
-    <Link href="/" className="group max-w-[290px]">
-      <div className="relative font-semibold text-lg p-4 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
+    <Link href={`/pokemon/${data?.name}`}>
+      <div className="relative group max-w-[290px] font-semibold text-lg p-4 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
         <div className="flex flex-col items-center w-full">
           <Image
             src="/assets/imgs/logo-pokeball.svg"
@@ -48,7 +48,9 @@ export const Card = ({ name, url }: CardProps) => {
           />
           <div className="flex flex-col justify-center items-center gap-2">
             <p>#{id}</p>
-            <p className="capitalize whitespace-nowrap">{name}</p>
+            <p className="capitalize text-center whitespace-nowrap max-sm:whitespace-normal">
+              {name}
+            </p>
             {data?.types && (
               <div className="flex gap-3">
                 {data?.types.map((type) => (
