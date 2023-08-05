@@ -16,7 +16,7 @@ type SearchTypesDataProps = {
 };
 
 export const SearchTypes = () => {
-  const { data } = useFetch<SearchTypesDataProps>(
+  const { data, isLoading } = useFetch<SearchTypesDataProps>(
     'https://pokeapi.co/api/v2/type/'
   );
   const listRef = useRef<HTMLDivElement>(null);
@@ -36,26 +36,32 @@ export const SearchTypes = () => {
 
   return (
     <div className="flex items-center gap-2">
-      <button
-        aria-label="prev"
-        onClick={() => scrollTypes('prev')}
-        className="btn_slide"
-      >
-        <MdNavigateNext className="rotate-180" />
-      </button>
-      <div
-        ref={listRef}
-        className="flex gap-2 w-full max-w-[280px] overflow-hidden scroll-smooth max-sm:overflow-x-scroll max-[394px]:max-w-[230px]"
-      >
-        {filterType?.map((type) => <Type key={type.name} type={type.name} />)}
-      </div>
-      <button
-        aria-label="next"
-        onClick={() => scrollTypes('next')}
-        className="btn_slide"
-      >
-        <MdNavigateNext />
-      </button>
+      {!isLoading && (
+        <>
+          <button
+            aria-label="prev"
+            onClick={() => scrollTypes('prev')}
+            className="btn_slide"
+          >
+            <MdNavigateNext className="rotate-180" />
+          </button>
+          <div
+            ref={listRef}
+            className="flex gap-2 w-full max-w-[280px] overflow-hidden scroll-smooth max-sm:overflow-x-scroll max-[394px]:max-w-[230px]"
+          >
+            {filterType?.map((type) => (
+              <Type key={type.name} type={type.name} />
+            ))}
+          </div>
+          <button
+            aria-label="next"
+            onClick={() => scrollTypes('next')}
+            className="btn_slide"
+          >
+            <MdNavigateNext />
+          </button>
+        </>
+      )}
     </div>
   );
 };
