@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="w-full flex justify-center items-center flex-col">
-      <div className="w-full my-10 flex justify-between gap-4 max-md:flex-wrap max-md:justify-center">
+      <div className="w-full max-w-[958px] my-10 flex justify-between gap-4 max-md:flex-wrap max-md:justify-center">
         <SearchTypes />
         <SearchPokemon />
       </div>

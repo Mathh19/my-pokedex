@@ -29,7 +29,7 @@
 }
 @layer components {
   .btn_slide {
-    @apply text-white text-3xl max-sm:hidden
+    @apply text-white text-4xl max-sm:hidden rounded-full duration-200 hover:bg-card-primary
   }
 
   .loading_pokeball {
@@ -37,7 +37,7 @@
   }
 
   .container_cards {
-    @apply inline-grid min-h-screen grid-cols-3 gap-x-11 gap-y-11 max-[1050px]:grid-cols-2 max-md:grid-cols-1
+    @apply inline-grid min-h-screen grid-cols-3 gap-11 max-[1050px]:grid-cols-2 max-md:grid-cols-1
   }
 
   .list_types {

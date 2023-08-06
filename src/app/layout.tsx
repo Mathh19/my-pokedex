@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Nav />
-        <div className="flex min-h-screen items-center flex-col max-w-5xl mx-auto px-16">
+        <div className="flex min-h-screen items-center flex-col max-w-7xl mx-auto px-16">
           {children}
         </div>
       </body>
