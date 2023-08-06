@@ -1,10 +1,10 @@
 import { Skeleton } from './Skeleton';
 
-type SekeletonCardProps = {
+type SkeletonCardProps = {
   lenght?: number;
 };
 
-export const SekeletonCard = ({ lenght = 9 }: SekeletonCardProps) => {
+export const SkeletonCard = ({ lenght = 9 }: SkeletonCardProps) => {
   return (
     <div className="container_cards">
       {[...Array(lenght)].map((_, index) => (

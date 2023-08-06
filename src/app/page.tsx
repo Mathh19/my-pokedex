@@ -6,7 +6,7 @@ import { Card } from '@/components/Card';
 import { Pagination } from '@/components/Pagination';
 import { SearchPokemon } from '@/components/SearchPokemon';
 import { SearchTypes } from '@/components/SearchTypes';
-import { SekeletonCard } from '@/components/ui/SkeletonCard';
+import { SkeletonCard } from '@/components/ui/SkeletonCard';
 import { useFetch } from '@/hooks/useFetch';
 
 type DataPokemonProps = {
@@ -29,7 +29,7 @@ export default function Home() {
       </div>
 
       {isLoading ? (
-        <SekeletonCard lenght={data?.results.length} />
+        <SkeletonCard lenght={data?.results.length} />
       ) : (
         <div className="container_cards">
           {data?.results.map((pokemon) => (
