@@ -13,9 +13,9 @@ export default function NotFound() {
       <Image
         src="/assets/imgs/error-404.svg"
         alt="error 404"
-        width={350}
-        height={350}
-        className="mt-6"
+        width={800}
+        height={800}
+        className="my-8"
       />
       <Link
         href="/"
