@@ -13,7 +13,11 @@ import { useFetch } from '@/hooks/useFetch';
 import { PokemonTypes } from '@/shared-types/pokemonTypes';
 import { TypeProps } from '@/shared-types/type';
 
-export default function Type({ params }: { params: { type: PokemonTypes } }) {
+export default function TypePage({
+  params
+}: {
+  params: { type: PokemonTypes };
+}) {
   const { data, isLoading } = useFetch<TypeProps>(
     `https://pokeapi.co/api/v2/type/${params.type}`
   );
@@ -43,7 +47,7 @@ export default function Type({ params }: { params: { type: PokemonTypes } }) {
 
   const pokemons = data?.pokemon.slice(0, limit);
 
-  const handleToBottom = () => {
+  const handleLoadMorePokemons = () => {
     setLimit((prevLimit) => prevLimit + 3);
     setTimeout(() => {
       buttonRef.current?.scrollIntoView({
@@ -52,7 +56,7 @@ export default function Type({ params }: { params: { type: PokemonTypes } }) {
     }, 180);
   };
 
-  const handleToTop = () => {
+  const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -105,14 +109,14 @@ export default function Type({ params }: { params: { type: PokemonTypes } }) {
           <button
             aria-label="to the top of the page"
             ref={buttonRef}
-            onClick={handleToTop}
+            onClick={handleScrollToTop}
             className="my-4 text-4xl text-slate-300 duration-200 hover:text-slate-600"
           >
             <BsFillArrowUpCircleFill />
           </button>
         ) : (
           <button
-            onClick={handleToBottom}
+            onClick={handleLoadMorePokemons}
             ref={buttonRef}
             className="flex justify-center items-center gap-2 my-4 bg-card-primary px-3.5 py-2.5 rounded-md duration-100 hover:bg-slate-700"
           >
