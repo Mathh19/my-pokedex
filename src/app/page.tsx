@@ -23,19 +23,23 @@ export default function Home() {
 
   return (
     <div className="w-full flex justify-center items-center flex-col">
-      <div className="w-full max-w-[958px] my-10 flex justify-between gap-4 max-md:flex-wrap max-md:justify-center">
+      <header className="w-full max-w-[958px] my-10 flex justify-between gap-4 max-md:flex-wrap max-md:justify-center">
         <SearchTypes />
         <SearchPokemon />
-      </div>
+      </header>
 
       {isLoading ? (
         <SkeletonCard lenght={data?.results.length} />
       ) : (
-        <div className="container_cards">
-          {data?.results.map((pokemon) => (
-            <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} />
+        <section className="container_cards">
+          {data?.results.map((pokemon, index) => (
+            <Card
+              key={`${pokemon.name}-${index}`}
+              name={pokemon.name}
+              url={pokemon.url}
+            />
           ))}
-        </div>
+        </section>
       )}
 
       <div className="my-10">
