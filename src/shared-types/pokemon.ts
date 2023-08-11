@@ -1,5 +1,12 @@
 import { PokemonTypes } from './pokemonTypes';
 
+export type StatsProps = {
+  base_stat: number;
+  stat: {
+    name: string;
+  };
+};
+
 export type PokemonProps = {
   id: number;
   name: string;
@@ -11,6 +18,12 @@ export type PokemonProps = {
       };
     };
   };
+  abilities: {
+    ability: {
+      name: string;
+      url: string;
+    };
+  }[];
   types: {
     type: {
       name: PokemonTypes;
@@ -21,12 +34,7 @@ export type PokemonProps = {
       name: string;
     };
   }[];
-  stats: {
-    base_stat: number;
-    stat: {
-      name: string;
-    };
-  }[];
+  stats: StatsProps[];
   height: number;
   weight: number;
 };
