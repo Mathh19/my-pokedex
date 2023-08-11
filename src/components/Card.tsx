@@ -23,9 +23,9 @@ export const Card = ({ name, url }: CardProps) => {
       ? `0${data.id}`
       : data?.id;
 
-  const img = data?.sprites.other['official-artwork'].front_default
-    ? data?.sprites.other['official-artwork'].front_default
-    : '/assets/imgs/pokemon-not-found.svg';
+  const img =
+    data?.sprites.other['official-artwork'].front_default ??
+    '/assets/imgs/pokemon-not-found.svg';
 
   return (
     <Link href={`/pokemon/${data?.name}`}>
