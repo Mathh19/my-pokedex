@@ -43,7 +43,7 @@ export default function Home() {
       )}
 
       <div className="my-10">
-        <Pagination count={143} setPage={setPage} />
+        <Pagination count={112} setPage={setPage} />
       </div>
     </div>
   );
