@@ -48,11 +48,16 @@ module.exports = {
           '100%': {
             transform: 'translateX(-10px) rotate(-20deg)'
           }
+        },
+        'modal-abilities': {
+          '0%': { opacity: '0', transform: 'translateY(-0.5rem)' },
+          '100%': { opacity: '1' }
         }
       },
       animation: {
         card: 'card 1s ease-in-out',
-        'pokeball-loading': 'pokeball 1s ease-in-out infinite'
+        'pokeball-loading': 'pokeball 1s ease-in-out infinite',
+        'modal-abilities': 'modal-abilities 800ms ease-in-out'
       }
     },
     fontFamily: {
