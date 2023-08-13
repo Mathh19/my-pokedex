@@ -9,9 +9,9 @@ import { EvolutionProps, evolutionChain } from '@/utils/evolutionChain';
 
 import { useFetch } from './useFetch';
 
-export const useEvolution = (name: string) => {
+export const useEvolution = (id: string) => {
   const { data: evolutionFrom } = useFetch<DataEvolutionProps>(
-    `https://pokeapi.co/api/v2/pokemon-species/${name}`
+    `https://pokeapi.co/api/v2/pokemon-species/${id}`
   );
   const [evolutions, setEvolutions] = useState<EvolutionProps[]>([]);
 

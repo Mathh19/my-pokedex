@@ -18,6 +18,10 @@ export type PokemonProps = {
       };
     };
   };
+  species: {
+    name: string;
+    url: string;
+  };
   abilities: {
     ability: {
       name: string;

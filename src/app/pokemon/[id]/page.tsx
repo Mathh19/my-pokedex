@@ -14,13 +14,13 @@ import { useEvolution } from '@/hooks/useEvolution';
 import { useFetch } from '@/hooks/useFetch';
 import { PokemonProps } from '@/shared-types/pokemon';
 
-export default function Pokemon({ params }: { params: { name: string } }) {
+export default function Pokemon({ params }: { params: { id: string } }) {
   const { data, isLoading } = useFetch<PokemonProps>(
-    `https://pokeapi.co/api/v2/pokemon/${params.name}`
+    `https://pokeapi.co/api/v2/pokemon/${params.id}`
   );
-  const { evolutions } = useEvolution(params.name);
+  const { evolutions } = useEvolution(params.id);
 
-  const id =
+  const pokemonId =
     data !== undefined && data.id <= 9
       ? `00${data.id}`
       : data !== undefined && data.id <= 99
@@ -41,14 +41,14 @@ export default function Pokemon({ params }: { params: { name: string } }) {
             <div className="w-full flex flex-col items-center text-center gap-3">
               <Image
                 src={img}
-                alt={params.name}
+                alt={data ? data.name : 'no pokemon'}
                 width={300}
                 height={300}
                 priority
                 className="contrast-125 drop-shadow-[8px_2px_4px_rgba(0,0,0,0.35)]"
               />
               <div className="text-xl font-bold">
-                <p>#{id}</p>
+                <p>#{pokemonId}</p>
                 <p className="capitalize">{data?.name}</p>
               </div>
               <div className="w-full flex justify-center gap-8">
