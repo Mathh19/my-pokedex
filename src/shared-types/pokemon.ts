@@ -1,5 +1,12 @@
 import { PokemonTypes } from './pokemonTypes';
 
+export type DataPokemonProps = {
+  results: {
+    name: string;
+    url: string;
+  }[];
+};
+
 export type StatsProps = {
   base_stat: number;
   stat: {

@@ -8,16 +8,12 @@ import { Pagination } from '@/components/Pagination';
 import { SkeletonCard } from '@/components/ui/SkeletonCard';
 import { Wrapper } from '@/components/Wrapper';
 import { useFetch } from '@/hooks/useFetch';
-
-type DataPokemonProps = {
-  name: string;
-  url: string;
-};
+import { DataPokemonProps } from '@/shared-types/pokemon';
 
 export default function Home() {
   const [page, setPage] = useState(1);
   const offset = 9 * (page - 1);
-  const { data, isLoading } = useFetch<{ results: DataPokemonProps[] }>(
+  const { data, isLoading } = useFetch<DataPokemonProps>(
     `https://pokeapi.co/api/v2/pokemon/?limit=9&offset=${offset}`
   );
 
