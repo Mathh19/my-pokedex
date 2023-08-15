@@ -33,7 +33,7 @@ export const Card = ({ name, url }: CardProps) => {
     <>
       {data && (
         <Link href={`/pokemon/${extractIdFromUrl(data.species.url)}`}>
-          <div className="relative group max-w-[290px] font-semibold text-lg p-4 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
+          <div className="relative group max-w-[290px] font-medium text-lg tracking-wide p-4 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
             <div className="flex flex-col items-center w-full">
               <Image
                 src="/assets/imgs/logo-pokeball.svg"
@@ -50,13 +50,13 @@ export const Card = ({ name, url }: CardProps) => {
                 priority
                 className="contrast-125 m-4 drop-shadow-[8px_2px_4px_rgba(0,0,0,0.35)]"
               />
-              <div className="flex flex-col justify-center items-center gap-2">
+              <div className="flex flex-col justify-center items-center">
                 <p>#{id}</p>
                 <p className="capitalize text-center whitespace-nowrap max-sm:whitespace-normal">
                   {name}
                 </p>
                 {data.types && (
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 mt-2">
                     {data.types.map((type) => (
                       <Type
                         key={type.type.name}

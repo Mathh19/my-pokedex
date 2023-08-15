@@ -1,16 +1,20 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
 import '@/styles/globals.css';
 import { Footer } from '@/components/Footer';
 import { Nav } from '@/components/Nav';
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  display: 'swap'
+});
 
 export const metadata: Metadata = {
   title: 'My Pokédex',
   description:
-    'Welcome to My Pokédex, the ultimate destination for Pokémon Trainers and enthusiasts! Embark on an exciting journey through the captivating world of Pokémon, where you can explore a comprehensive database of Pokémon species, uncover their unique abilities and evolution paths.'
+    'Welcome to My pokédex, a site where you can search for information about pokémons, their evolutions, which type each pokémon is related to and the status of their attributes and skills'
 };
 
 export default function RootLayout({
@@ -20,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Nav />
         <div className="flex min-h-screen items-center flex-col max-w-7xl mx-auto px-16">
           {children}

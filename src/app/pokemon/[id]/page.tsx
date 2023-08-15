@@ -47,7 +47,7 @@ export default function Pokemon({ params }: { params: { id: string } }) {
                 priority
                 className="contrast-125 drop-shadow-[8px_2px_4px_rgba(0,0,0,0.35)]"
               />
-              <div className="text-xl font-bold">
+              <div className="text-xl font-semibold tracking-wider">
                 <p>#{pokemonId}</p>
                 <p className="capitalize">{data?.name}</p>
               </div>
