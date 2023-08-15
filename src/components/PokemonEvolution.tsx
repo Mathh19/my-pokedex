@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useFetch } from '@/hooks/useFetch';
 import { PokemonProps } from '@/shared-types/pokemon';
 
+import { extractIdFromUrl } from '@/utils/extractIdFromUrl';
+
 type PokemonEvolutionProps = {
   name: string;
 };
@@ -19,13 +21,17 @@ export const PokemonEvolution = ({ name }: PokemonEvolutionProps) => {
     '/assets/imgs/pokemon-not-found.svg';
 
   return (
-    <Link href={`/pokemon/${name}`}>
-      <div className="flex flex-col items-center text-center gap-1">
-        <div className="p-8 border-4 border-white rounded-full">
-          <Image src={img} alt={name} width={200} height={200} priority />
-        </div>
-        <p className="capitalize text-2xl font-semibold">{data?.name}</p>
-      </div>
-    </Link>
+    <>
+      {data && (
+        <Link href={`/pokemon/${extractIdFromUrl(data.species.url)}`}>
+          <div className="flex flex-col items-center text-center gap-1">
+            <div className="p-8 border-4 border-white rounded-full">
+              <Image src={img} alt={name} width={200} height={200} priority />
+            </div>
+            <p className="capitalize text-2xl font-semibold">{data?.name}</p>
+          </div>
+        </Link>
+      )}
+    </>
   );
 };

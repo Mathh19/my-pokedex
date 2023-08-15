@@ -3,7 +3,6 @@
 import { useState } from 'react';
 
 import { Card } from '@/components/Card';
-import { Header } from '@/components/Header';
 import { Pagination } from '@/components/Pagination';
 import { SkeletonCard } from '@/components/ui/SkeletonCard';
 import { Wrapper } from '@/components/Wrapper';
@@ -19,8 +18,6 @@ export default function Home() {
 
   return (
     <Wrapper>
-      <Header />
-
       {isLoading ? (
         <SkeletonCard lenght={data?.results.length} />
       ) : (

@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 
 import { Card } from '@/components/Card';
-import { Header } from '@/components/Header';
 import { SearchNotFound } from '@/components/SearchNotFound';
 import { Wrapper } from '@/components/Wrapper';
 import { useFetch } from '@/hooks/useFetch';
@@ -27,7 +26,6 @@ export default function SearchPage({ params }: { params: { name: string } }) {
 
   return (
     <Wrapper>
-      <Header />
       {!isLoading && filterPokemon?.length === 0 && <SearchNotFound />}
       {filterPokemon && filterPokemon.length > 0 && (
         <>
