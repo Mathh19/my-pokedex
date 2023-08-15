@@ -3,9 +3,8 @@
 import { useState } from 'react';
 
 import { Card } from '@/components/Card';
+import { Header } from '@/components/Header';
 import { Pagination } from '@/components/Pagination';
-import { SearchPokemon } from '@/components/SearchPokemon';
-import { SearchTypes } from '@/components/SearchTypes';
 import { SkeletonCard } from '@/components/ui/SkeletonCard';
 import { Wrapper } from '@/components/Wrapper';
 import { useFetch } from '@/hooks/useFetch';
@@ -24,10 +23,7 @@ export default function Home() {
 
   return (
     <Wrapper>
-      <header className="w-full max-w-[958px] mt-10 flex justify-between gap-4 max-md:flex-wrap max-md:justify-center">
-        <SearchTypes />
-        <SearchPokemon />
-      </header>
+      <Header />
 
       {isLoading ? (
         <SkeletonCard lenght={data?.results.length} />
