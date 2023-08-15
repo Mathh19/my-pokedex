@@ -87,7 +87,7 @@ export default function Pokemon({ params }: { params: { id: string } }) {
         <h2 className="text-5xl text-center font-bold tracking-wide">
           Evolutions
         </h2>
-        {evolutions.length === 0 ? (
+        {evolutions.length === 0 && !isLoading ? (
           <p className="mt-4 text-xl">No Evolutions</p>
         ) : (
           <ContainerEvolution evolutions={evolutions} />

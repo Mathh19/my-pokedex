@@ -7,6 +7,7 @@ import { Pagination } from '@/components/Pagination';
 import { SearchPokemon } from '@/components/SearchPokemon';
 import { SearchTypes } from '@/components/SearchTypes';
 import { SkeletonCard } from '@/components/ui/SkeletonCard';
+import { Wrapper } from '@/components/Wrapper';
 import { useFetch } from '@/hooks/useFetch';
 
 type DataPokemonProps = {
@@ -22,8 +23,8 @@ export default function Home() {
   );
 
   return (
-    <div className="w-full flex justify-center items-center flex-col">
-      <header className="w-full max-w-[958px] my-10 flex justify-between gap-4 max-md:flex-wrap max-md:justify-center">
+    <Wrapper>
+      <header className="w-full max-w-[958px] mt-10 flex justify-between gap-4 max-md:flex-wrap max-md:justify-center">
         <SearchTypes />
         <SearchPokemon />
       </header>
@@ -42,9 +43,9 @@ export default function Home() {
         </section>
       )}
 
-      <div className="my-10">
+      <div className="mb-10">
         <Pagination count={112} setPage={setPage} />
       </div>
-    </div>
+    </Wrapper>
   );
 }

@@ -12,7 +12,7 @@ export const SearchPokemon = () => {
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
     if (searchPokemon === '') return;
-    router.push(`/pokemon/${searchPokemon.toLowerCase()}`);
+    router.push(`/search/${searchPokemon.toLowerCase()}`);
   };
 
   return (

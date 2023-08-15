@@ -88,7 +88,7 @@ export default function TypePage({
           <PokemonTypeDetails damageRelations={data?.damage_relations} />
         </section>
       )}
-      <section className="flex flex-col items-center gap-8">
+      <section className="flex flex-col items-center">
         <h2 className="text-4xl font-bold text-center">
           <span className="capitalize">{params.type}</span> type pokemons
         </h2>
@@ -110,7 +110,7 @@ export default function TypePage({
             aria-label="to the top of the page"
             ref={buttonRef}
             onClick={handleScrollToTop}
-            className="my-4 text-4xl text-slate-300 duration-200 hover:text-slate-600"
+            className="mb-10 text-4xl text-slate-300 duration-200 hover:text-slate-600"
           >
             <BsFillArrowUpCircleFill />
           </button>
@@ -118,7 +118,7 @@ export default function TypePage({
           <button
             onClick={handleLoadMorePokemons}
             ref={buttonRef}
-            className="flex justify-center items-center gap-2 my-4 bg-card-primary px-3.5 py-2.5 rounded-md duration-100 hover:bg-slate-700"
+            className="flex justify-center items-center gap-2 mb-10 bg-card-primary px-3.5 py-2.5 rounded-md duration-100 hover:bg-slate-700"
           >
             <TbPokeball className="text-2xl" />
             See more Pokémon

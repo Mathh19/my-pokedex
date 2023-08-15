@@ -37,7 +37,7 @@
   }
 
   .container_cards {
-    @apply inline-grid min-h-screen grid-cols-3 gap-11 max-[1050px]:grid-cols-2 max-md:grid-cols-1
+    @apply inline-grid min-h-screen grid-cols-3 gap-11 my-10 max-[1050px]:grid-cols-2 max-md:grid-cols-1
   }
 
   .list_types {
