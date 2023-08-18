@@ -26,7 +26,7 @@ export const SearchPokemon = () => {
       />
       <button
         type="submit"
-        aria-label="searchs"
+        aria-label="search"
         onClick={handleSubmit}
         className="absolute outline-1 -right-[1px] shadow-[0px_0px_5px_black] flex text-xl justify-center items-center cursor-pointer w-12 h-12 rounded-full bg-black group-focus-within:bg-neutral-900 group-focus-within:outline"
       >

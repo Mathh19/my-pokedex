@@ -33,7 +33,7 @@ export const Card = ({ name, url }: CardProps) => {
     <>
       {data && (
         <Link href={`/pokemon/${extractIdFromUrl(data.species.url)}`}>
-          <div className="relative group font-medium text-lg tracking-wide p-4 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
+          <div className="relative group font-medium text-lg tracking-wide p-6 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
             <div className="flex flex-col items-center w-full">
               <Image
                 src="/assets/imgs/logo-pokeball.svg"
@@ -42,10 +42,10 @@ export const Card = ({ name, url }: CardProps) => {
                 alt="pokeball icon"
                 className="absolute left-0 top-0 m-1 group-hover:rotate-45 delay-100 duration-300 ease-in-out"
               />
-              <div className="m-4 contrast-125">
+              <div className="contrast-125">
                 <Image
                   src={img}
-                  alt={name}
+                  alt={`${name} image`}
                   width={250}
                   height={250}
                   priority
