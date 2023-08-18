@@ -9,8 +9,10 @@ export type EvolutionProps = {
   };
 };
 
-export function evolutionChain(chain: EvolutionChainProps): EvolutionProps[] {
-  const { species, evolves_to } = chain;
+export function formatEvolutionChain(
+  evolutionChain: EvolutionChainProps
+): EvolutionProps[] {
+  const { species, evolves_to } = evolutionChain;
 
   if (!evolves_to.length) {
     return [];
@@ -20,7 +22,9 @@ export function evolutionChain(chain: EvolutionChainProps): EvolutionProps[] {
     const current = { name: species.name };
     const next = { name: evolution.species.name };
 
-    const nextEvolutions = evolutionChain(evolution as EvolutionChainProps);
+    const nextEvolutions = formatEvolutionChain(
+      evolution as EvolutionChainProps
+    );
 
     return [{ current, next }, ...nextEvolutions];
   });

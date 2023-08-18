@@ -19,9 +19,9 @@ export const Card = ({ name, url }: CardProps) => {
   const { data } = useFetch<PokemonProps>(url);
 
   const id =
-    data !== undefined && data.id <= 9
+    data && data.id <= 9
       ? `00${data.id}`
-      : data !== undefined && data.id <= 99
+      : data && data.id <= 99
       ? `0${data.id}`
       : data?.id;
 
@@ -33,7 +33,7 @@ export const Card = ({ name, url }: CardProps) => {
     <>
       {data && (
         <Link href={`/pokemon/${extractIdFromUrl(data.species.url)}`}>
-          <div className="relative group max-w-[290px] font-medium text-lg tracking-wide p-4 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
+          <div className="relative group font-medium text-lg tracking-wide p-4 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
             <div className="flex flex-col items-center w-full">
               <Image
                 src="/assets/imgs/logo-pokeball.svg"
@@ -42,14 +42,16 @@ export const Card = ({ name, url }: CardProps) => {
                 alt="pokeball icon"
                 className="absolute left-0 top-0 m-1 group-hover:rotate-45 delay-100 duration-300 ease-in-out"
               />
-              <Image
-                src={img}
-                alt={name}
-                width={250}
-                height={250}
-                priority
-                className="contrast-125 m-4 drop-shadow-[8px_2px_4px_rgba(0,0,0,0.35)]"
-              />
+              <div className="m-4 contrast-125">
+                <Image
+                  src={img}
+                  alt={name}
+                  width={250}
+                  height={250}
+                  priority
+                  className="drop-shadow-[8px_2px_4px_rgba(0,0,0,0.35)]"
+                />
+              </div>
               <div className="flex flex-col justify-center items-center">
                 <p>#{id}</p>
                 <p className="capitalize text-center whitespace-nowrap max-sm:whitespace-normal">

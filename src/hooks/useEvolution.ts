@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import {
   DataEvolutionProps,
   PokemonEvolutionProps
 } from '@/shared-types/evolution';
 
-import { EvolutionProps, evolutionChain } from '@/utils/evolutionChain';
+import { EvolutionProps, formatEvolutionChain } from '@/utils/evolutionChain';
 
 import { useFetch } from './useFetch';
 
@@ -15,22 +15,23 @@ export const useEvolution = (id: string) => {
   );
   const [evolutions, setEvolutions] = useState<EvolutionProps[]>([]);
 
-  useEffect(() => {
-    const fetchEvolution = async () => {
-      if (evolutionFrom) {
-        try {
-          const res = await fetch(evolutionFrom.evolution_chain.url);
-          const data: PokemonEvolutionProps = await res.json();
+  const fetchEvolution = useCallback(async () => {
+    if (evolutionFrom) {
+      try {
+        const evolutionResults = await fetch(evolutionFrom.evolution_chain.url);
+        const evolutionChainData: PokemonEvolutionProps =
+          await evolutionResults.json();
 
-          setEvolutions(evolutionChain(data.chain));
-        } catch (err) {
-          console.log(err);
-        }
+        setEvolutions(formatEvolutionChain(evolutionChainData.chain));
+      } catch (err) {
+        console.log(err);
       }
-    };
-
-    fetchEvolution();
+    }
   }, [evolutionFrom]);
+
+  useEffect(() => {
+    fetchEvolution();
+  }, [fetchEvolution]);
 
   return { evolutions: evolutions };
 };

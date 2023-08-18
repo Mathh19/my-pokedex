@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         'bg-primary': '#191919',
         'text-primary': '#FAFAFA',
-        'nav-primary': '#E3350D',
+        'header-primary': '#E3350D',
         'card-primary': '#434A54',
         'pokemon-types': {
           normal: '#9fa39d',

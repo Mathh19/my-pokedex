@@ -3,8 +3,8 @@ import { Poppins } from 'next/font/google';
 
 import '@/styles/globals.css';
 import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
 import { Nav } from '@/components/Nav';
-import { SearchBar } from '@/components/SearchBar';
 
 const poppins = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -26,10 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Nav />
-        <div className="flex min-h-screen items-center flex-col max-w-7xl mx-auto px-16">
-          <SearchBar />
-          {children}
+        <Header />
+        <div className="flex min-h-screen items-center flex-col max-w-7xl mx-auto px-4">
+          <Nav />
+          <main className="w-full">{children}</main>
         </div>
         <Footer />
       </body>

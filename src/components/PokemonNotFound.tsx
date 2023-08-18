@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export const SearchNotFound = () => {
+export const PokemonNotFound = () => {
   return (
     <div className="flex flex-col mt-10 gap-6 items-center">
       <p className="text-2xl font-medium tracking-wide text-center">
