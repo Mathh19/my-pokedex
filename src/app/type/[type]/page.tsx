@@ -7,7 +7,6 @@ import { TbPokeball } from 'react-icons/tb';
 
 import { Card } from '@/components/Card';
 import { PokemonTypeDetails } from '@/components/PokemonTypeDetails';
-import { SkeletonCard } from '@/components/ui/SkeletonCard';
 import { SkeletonPokemonType } from '@/components/ui/SkeletonPokemonType';
 import { useFetch } from '@/hooks/useFetch';
 import { PokemonTypes } from '@/shared-types/pokemonTypes';
@@ -92,19 +91,15 @@ export default function TypePage({
         <h2 className="text-4xl font-bold text-center">
           <span className="capitalize">{params.type}</span> type pokemons
         </h2>
-        {isLoading ? (
-          <SkeletonCard lenght={limit} />
-        ) : (
-          <div className="container_cards">
-            {pokemons?.map((pokemon) => (
-              <Card
-                key={pokemon.pokemon.name}
-                name={pokemon.pokemon.name}
-                url={pokemon.pokemon.url}
-              />
-            ))}
-          </div>
-        )}
+        <div className="container_cards">
+          {pokemons?.map((pokemon) => (
+            <Card
+              key={pokemon.pokemon.name}
+              name={pokemon.pokemon.name}
+              url={pokemon.pokemon.url}
+            />
+          ))}
+        </div>
         {pokemons?.length === data?.pokemon.length ? (
           <button
             aria-label="to the top of the page"
