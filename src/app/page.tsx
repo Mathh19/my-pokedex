@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { Card } from '@/components/Card';
 import { Pagination } from '@/components/Pagination';
-import { SkeletonCard } from '@/components/ui/SkeletonCard';
+import { LoadingPage } from '@/components/ui/LoadingPage';
 import { Wrapper } from '@/components/Wrapper';
 import { useFetch } from '@/hooks/useFetch';
 import { DataPokemonProps } from '@/shared-types/pokemon';
@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <Wrapper>
       {isLoading ? (
-        <SkeletonCard lenght={data?.results.length} />
+        <LoadingPage />
       ) : (
         <section className="container_cards">
           {data?.results.map((pokemon, index) => (

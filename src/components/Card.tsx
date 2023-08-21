@@ -9,6 +9,7 @@ import { PokemonProps } from '@/shared-types/pokemon';
 import { extractIdFromUrl } from '@/utils/extractIdFromUrl';
 
 import { Type } from './Type';
+import { Skeleton } from './ui/Skeleton';
 
 type CardProps = {
   name: string;
@@ -16,14 +17,9 @@ type CardProps = {
 };
 
 export const Card = ({ name, url }: CardProps) => {
-  const { data } = useFetch<PokemonProps>(url);
+  const { data, isLoading } = useFetch<PokemonProps>(url);
 
-  const id =
-    data && data.id <= 9
-      ? `00${data.id}`
-      : data && data.id <= 99
-      ? `0${data.id}`
-      : data?.id;
+  const id = data?.id.toString().padStart(3, '0');
 
   const img =
     data?.sprites.other['official-artwork'].front_default ??
@@ -31,8 +27,18 @@ export const Card = ({ name, url }: CardProps) => {
 
   return (
     <>
-      {data && (
-        <Link href={`/pokemon/${extractIdFromUrl(data.species.url)}`}>
+      {isLoading ? (
+        <div className="relative group font-medium text-lg tracking-wide p-6 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
+          <Skeleton type="img" />
+
+          <div className="flex mt-4 flex-col items-center gap-2">
+            <Skeleton type="text" size="sm" />
+            <Skeleton type="text" size="md" />
+            <Skeleton type="text" size="md" />
+          </div>
+        </div>
+      ) : (
+        <Link href={`/pokemon/${extractIdFromUrl(data?.species.url)}`}>
           <div className="relative group font-medium text-lg tracking-wide p-6 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
             <div className="flex flex-col items-center w-full">
               <Image
@@ -57,9 +63,9 @@ export const Card = ({ name, url }: CardProps) => {
                 <p className="capitalize text-center whitespace-nowrap max-sm:whitespace-normal">
                   {name}
                 </p>
-                {data.types && (
+                {data?.types && (
                   <div className="flex gap-3 mt-2">
-                    {data.types.map((type) => (
+                    {data?.types.map((type) => (
                       <Type
                         key={type.type.name}
                         disabled={true}

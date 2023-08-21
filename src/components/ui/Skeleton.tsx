@@ -5,7 +5,7 @@ type SkeletonProps = {
 
 export const Skeleton = ({ type, size = 'full' }: SkeletonProps) => {
   const classVariants = {
-    img: 'w-60 h-60 rounded-full max-[432px]:w-40 max-[432px]:h-40',
+    img: 'w-[250px] h-[250px] rounded-full max-[432px]:w-40 max-[432px]:h-40',
     text: `${
       size === 'sm'
         ? 'w-16 rounded-md'

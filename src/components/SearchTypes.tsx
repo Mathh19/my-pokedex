@@ -51,7 +51,7 @@ export const SearchTypes = () => {
         {isLoading
           ? [...Array(4)].map((_, index) => (
               <li key={index}>
-                <Skeleton type="text" size="md" />
+                <Skeleton type="text" size="sm" />
               </li>
             ))
           : filterType?.map((type) => (
