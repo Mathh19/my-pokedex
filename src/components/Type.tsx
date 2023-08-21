@@ -39,7 +39,7 @@ export const Type = ({ type, disabled = false }: TypeProps) => {
   return (
     <button
       disabled={disabled}
-      aria-label={type}
+      aria-label={`button to navigate to details about ${type} type`}
       value={type}
       onClick={() => handleNavigateToType(type)}
       className={`${colorVariantsBg[type]} flex gap-1 justify-center items-center rounded-full px-2 py-1.5 font-semibold tracking-wider text-sm uppercase max-sm:py-2`}
