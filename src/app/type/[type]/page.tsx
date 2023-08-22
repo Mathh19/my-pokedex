@@ -1,16 +1,24 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BsFillArrowUpCircleFill } from 'react-icons/bs';
 import { TbPokeball } from 'react-icons/tb';
 
 import { Card } from '@/components/Card';
 import { PokemonTypeDetails } from '@/components/PokemonTypeDetails';
+import { LoadingPage } from '@/components/ui/LoadingPage';
 import { SkeletonPokemonType } from '@/components/ui/SkeletonPokemonType';
 import { useFetch } from '@/hooks/useFetch';
 import { PokemonTypes } from '@/shared-types/pokemonTypes';
 import { TypeProps } from '@/shared-types/type';
+
+type DataPokemonProps = {
+  pokemon: {
+    name: string;
+    url: string;
+  };
+};
 
 export default function TypePage({
   params
@@ -42,9 +50,9 @@ export default function TypePage({
   };
 
   const [limit, setLimit] = useState(9);
+  const [pokemons, setPokemons] = useState<DataPokemonProps[]>([]);
+  const [loadingPokemons, setLoadingPokemons] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  const pokemons = data?.pokemon.slice(0, limit);
 
   const handleLoadMorePokemons = () => {
     setLimit((prevLimit) => prevLimit + 3);
@@ -61,6 +69,15 @@ export default function TypePage({
       behavior: 'smooth'
     });
   };
+
+  useEffect(() => {
+    setLoadingPokemons(true);
+    if (data) {
+      const dataLimited = data.pokemon.slice(0, limit);
+      setPokemons(dataLimited);
+      setLoadingPokemons(false);
+    }
+  }, [data, limit]);
 
   return (
     <div className="flex flex-col items-center">
@@ -91,15 +108,19 @@ export default function TypePage({
         <h2 className="text-4xl font-bold text-center">
           <span className="capitalize">{params.type}</span> type pokemons
         </h2>
-        <div className="container_cards">
-          {pokemons?.map((pokemon) => (
-            <Card
-              key={pokemon.pokemon.name}
-              name={pokemon.pokemon.name}
-              url={pokemon.pokemon.url}
-            />
-          ))}
-        </div>
+        {loadingPokemons || !data ? (
+          <LoadingPage />
+        ) : (
+          <div className="container_cards">
+            {pokemons?.map((pokemon) => (
+              <Card
+                key={pokemon.pokemon.name}
+                name={pokemon.pokemon.name}
+                url={pokemon.pokemon.url}
+              />
+            ))}
+          </div>
+        )}
         {pokemons?.length === data?.pokemon.length ? (
           <button
             aria-label="to the top of the page"
