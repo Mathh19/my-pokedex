@@ -33,6 +33,10 @@ module.exports = {
           fairy: '#ff76ff'
         }
       },
+      fontFamily: {
+        sans: ['var(--font-poppins)'],
+        mono: ['var(--font-pokemon)']
+      },
       keyframes: {
         card: {
           '0%': { opacity: '0', transform: 'translateY(-1.5rem)' },

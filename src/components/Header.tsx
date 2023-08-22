@@ -5,20 +5,16 @@ export const Header = () => {
   return (
     <header className="bg-header-primary w-full drop-shadow-md py-2 px-4 flex justify-between items-center">
       <Link href="/">
-        <div className="flex gap-1 mr-4">
+        <div className="flex gap-1">
           <Image
             src="/assets/imgs/logo-pokeball.svg"
             width={64}
             height={64}
             alt="pokeball icon"
           />
-          <Image
-            src="/assets/imgs/logo-text.svg"
-            width={160}
-            height={160}
-            alt="pokedex written text icon"
-            priority
-          />
+          <p className="inline-block font-mono text-[40px]/tight font-medium tracking-wide">
+            Pokédex
+          </p>
         </div>
       </Link>
     </header>
