@@ -12,7 +12,7 @@ export const Header = () => {
             height={64}
             alt="pokeball icon"
           />
-          <p className="inline-block font-mono text-[40px]/tight font-medium tracking-wide">
+          <p className="inline-block font-mono text-[2.5rem]/relaxed font-medium tracking-wide">
             Pokédex
           </p>
         </div>

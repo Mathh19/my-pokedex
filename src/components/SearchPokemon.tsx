@@ -13,6 +13,7 @@ export const SearchPokemon = () => {
     e.preventDefault();
     if (searchPokemon === '') return;
     router.push(`/search/${searchPokemon.toLowerCase()}`);
+    setSearchPokemon('');
   };
 
   return (
