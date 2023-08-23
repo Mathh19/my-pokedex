@@ -8,7 +8,7 @@
 ## 🔧 Technologies used in the project
 
 - Next.js 13
-- TypeSscript
+- TypeScript
 - Tailwind
 - MaterialUI
 
