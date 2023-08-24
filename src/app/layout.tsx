@@ -23,7 +23,8 @@ const pokemonFont = localFont({
 export const metadata: Metadata = {
   title: 'My Pokédex',
   description:
-    'Welcome to My pokédex, a site where you can search for information about pokémons, their evolutions, which type each pokémon is related to and the status of their attributes and skills'
+    'Welcome to My pokédex, a site where you can search for information about pokémons, their evolutions, which type each pokémon is related to and the status of their attributes and skills',
+  verification: { google: 'V_HDiTP1C1aHySVkCM4-E_TZkgINo12MMwNkEICDeKc' }
 };
 
 export default function RootLayout({
