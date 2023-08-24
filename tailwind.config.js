@@ -33,6 +33,9 @@ module.exports = {
           fairy: '#ff76ff'
         }
       },
+      dropShadow: {
+        '3xl': '6px 10px 4px rgba(0,0,0,0.35)'
+      },
       fontFamily: {
         sans: ['var(--font-poppins)'],
         mono: ['var(--font-pokemon)']

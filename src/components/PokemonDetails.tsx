@@ -34,7 +34,7 @@ export const PokemonDetails = ({ id }: PokemonDetailsProps) => {
     '/assets/imgs/pokemon-not-found.svg';
 
   return (
-    <section className="flex w-full justify-center gap-16 px-10 py-6 bg-card-primary drop-shadow-sm rounded-xl max-[950px]:flex-wrap">
+    <section className="flex w-full justify-center gap-16 px-10 py-6 bg-card-primary/60 drop-shadow-3xl rounded-xl max-[950px]:flex-wrap">
       {isLoading ? (
         <SkeletonDetails />
       ) : (
@@ -47,7 +47,7 @@ export const PokemonDetails = ({ id }: PokemonDetailsProps) => {
                 width={300}
                 height={300}
                 priority
-                className=" drop-shadow-[8px_2px_4px_rgba(0,0,0,0.35)]"
+                className=" drop-shadow-3xl"
               />
             </div>
             <div className="text-xl font-semibold tracking-wider">

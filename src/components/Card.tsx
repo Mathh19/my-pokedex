@@ -28,7 +28,7 @@ export const Card = ({ name, url }: CardProps) => {
   return (
     <>
       {isLoading ? (
-        <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)]">
+        <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-card-primary drop-shadow-3xl">
           <Skeleton type="img" />
           <div className="flex flex-col items-center gap-2">
             <Skeleton type="text" size="sm" />
@@ -38,7 +38,7 @@ export const Card = ({ name, url }: CardProps) => {
         </div>
       ) : (
         <Link href={`/pokemon/${extractIdFromUrl(data?.species.url)}`}>
-          <div className="relative group font-medium text-lg tracking-wide p-6 rounded-xl bg-card-primary drop-shadow-[6px_10px_4px_rgba(0,0,0,0.35)] animate-card">
+          <div className="relative group font-medium text-lg tracking-wide p-6 rounded-xl bg-card-primary drop-shadow-3xl animate-card">
             <div className="flex flex-col items-center w-full">
               <Image
                 src="/assets/imgs/logo-pokeball.svg"
