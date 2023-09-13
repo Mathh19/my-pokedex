@@ -46,7 +46,7 @@ export const SearchTypes = () => {
       </button>
       <ul
         ref={listRef}
-        className="flex gap-2 w-full max-w-[280px] overflow-hidden scroll-smooth max-sm:overflow-x-scroll max-[394px]:max-w-[230px]"
+        className="flex gap-2 w-full max-w-[320px] overflow-hidden scroll-smooth max-sm:overflow-x-scroll max-[394px]:max-w-[220px]"
       >
         {isLoading
           ? [...Array(4)].map((_, index) => (
