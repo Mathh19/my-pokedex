@@ -42,13 +42,13 @@ export const Type = ({ type, disabled = false }: TypeProps) => {
       aria-label={`button to navigate to details about ${type} type`}
       value={type}
       onClick={() => handleNavigateToType(type)}
-      className={`${colorVariantsBg[type]} flex gap-1 justify-center items-center rounded-full px-2 py-1.5 font-semibold tracking-wider text-sm uppercase max-sm:py-2`}
+      className={`${colorVariantsBg[type]} flex gap-1.5 justify-center items-center rounded-full px-2.5 py-1.5 font-semibold tracking-wider text-base uppercase max-sm:py-2`}
     >
       <Image
         src={`/assets/icons/${type}.svg`}
         alt={`${type} pokemon type icon`}
-        width={20}
-        height={20}
+        width={24}
+        height={24}
       />
       <span className="max-sm:hidden">{type}</span>
     </button>
